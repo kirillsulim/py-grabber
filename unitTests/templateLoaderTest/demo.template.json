@@ -1,0 +1,3 @@
+{
+    "matcher": "lambda x: x == 'test_value'"
+}
