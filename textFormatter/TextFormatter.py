@@ -56,8 +56,10 @@ class TextFormatter:
         return string
 
     def replace_multiple_new_line_and_spaces(self, string):
-        string = re.sub(r'(\r\n)+', '\n', string)
         string = re.sub(r'(\s)+', ' ', string)
+        string = re.sub(r'\s[\r\n]+', '\n', string)
+        string = re.sub(r'(\r\n)+', '\n', string)
+
         return string
 
 

@@ -4,7 +4,7 @@ import os
 
 class FileSaver:
     def save(self, url, text):
-        name = self.create_by_url(url)
+        name = self.create_filename_from_url(url)
 
         file_dir = self.get_dir_name(name)
         if not os.path.exists(file_dir):
@@ -19,7 +19,7 @@ class FileSaver:
             file.writelines(text)
 
 
-    def create_by_url(self, url):
+    def create_filename_from_url(self, url):
 
         url = str(url).replace('http://', '').replace('https://', '')
         if url.endswith('/'):
