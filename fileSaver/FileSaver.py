@@ -16,6 +16,8 @@ class FileSaver:
         #print(text)
 
         with open(name, 'w', encoding='utf-8') as file:
+            file.write("from: " + url
+                       + "\n================================================================================\n")
             file.writelines(text)
 
 

@@ -17,9 +17,7 @@ class TextFormatter:
             el_str = self.replace_multiple_new_line_and_spaces(el_str)
             el_str = self.split_80_chars(el_str)
             res.append(el_str)
-            res.append('\n')
-            if str(el[0]).startswith('h'):
-                res.append('\n')
+            res.append('\n\n')
 
         return ''.join(res)
 
