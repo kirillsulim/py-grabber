@@ -23,7 +23,7 @@ class HtmlExtractor:
 
     @staticmethod
     def default_matcher(tag):
-        return tag.name == 'p' or tag.name == 'h1'
+        return tag.name == 'p' or tag.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
 
 
 
