@@ -18,7 +18,7 @@ class TemplateLoaderTest(unittest.TestCase):
             self.assertEqual(test[1], self.loader.get_name_from_url(test[0]))
 
     def test_should_load_lambda(self):
-        template = self.loader.load('demo.template.json')
+        template = self.loader.load('demo.template')
         # Here matcher is simple comparator
         self.assertTrue(template.matcher('test_value'))
 

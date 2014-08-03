@@ -1,4 +1,5 @@
 import json
+import os.path as path
 
 from templateLoader.ParseTemplate import ParseTemplate
 
@@ -22,10 +23,13 @@ class TemplateLoader:
 
     @staticmethod
     def load_by_name(name):
-        file = open(name, 'r')
-        jsn = json.load(file)
+        template_path = "/templates/" + name + ".json"
 
         template = ParseTemplate()
-        template.matcher = eval(jsn['matcher'])
-
-        return template
+        if not (path.exists(template_path) and path.isfile(template_path)):
+            return template
+        else:
+            file = open(name, 'r')
+            jsn = json.load(file)
+            template.matcher = eval(jsn['matcher'])
+            return template

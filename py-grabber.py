@@ -1,12 +1,9 @@
-from webDownloader.WebDownloader import WebDownloader
-from htmlExtractor.HtmlExtractor import HtmlExtractor
 
 
-d = WebDownloader()
+from application.Application import Application
 
-page = d.download_html("http://www.gazeta.ru/politics/2014/08/02_a_6155829.shtml")
+url = "http://lenta.ru/articles/2014/08/01/parking/"
 
-extractor = HtmlExtractor(page)
+app = Application()
+app.run(url)
 
-for e in extractor.extract():
-    print(e[1])
