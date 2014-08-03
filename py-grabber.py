@@ -1,9 +1,16 @@
 
-
+import sys
 from application.Application import Application
 
-url = "http://www.gazeta.ru/tech/2014/08/01_a_6153949.shtml"
+if len(sys.argv) < 1:
+    print("Pass url as a command line parameter")
+    exit()
 
-app = Application()
-app.run(url)
+try:
+    app = Application()
+    app.run(sys.argv[1])
+except:
+    print(sys.exc_info())
+
+
 

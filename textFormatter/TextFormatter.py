@@ -14,6 +14,7 @@ class TextFormatter:
             el_str = str(el[1])
             el_str = self.replace_a_to_brackets(el_str)
             el_str = self.cut_all_tags(el_str)
+            el_str = self.replace_multiple_new_line_and_spaces(el_str)
             el_str = self.split_80_chars(el_str)
             res.append(el_str)
             res.append('\n')
@@ -52,6 +53,11 @@ class TextFormatter:
     def replace_a_to_brackets(self, string):
         string = re.sub(r'<a.+href\s*=\s*[\"\'](.+?)[\"\'].*>(.+)</a>', r'\2[\1]', string)
         string = string.replace('<a>', '[').replace('</a>', ']')
+        return string
+
+    def replace_multiple_new_line_and_spaces(self, string):
+        string = re.sub(r'(\r\n)+', '\n', string)
+        string = re.sub(r'(\s)+', ' ', string)
         return string
 
 
