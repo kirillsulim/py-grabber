@@ -17,7 +17,7 @@ class Application:
         template = TemplateLoader().load(url)
 
         #extract elements
-        elements = HtmlExtractor(page).extract(template.matcher)
+        elements = HtmlExtractor(page).extract(template)
 
         #format text
         text = TextFormatter().format_text(elements)

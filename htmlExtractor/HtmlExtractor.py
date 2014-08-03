@@ -6,7 +6,8 @@ class HtmlExtractor:
         """pass page text as a constructor parameter"""
         self.page = page
 
-    def extract(self, matcher=None):
+    def extract(self, template):
+        matcher = template.matcher
         if matcher is None:
             matcher = self.default_matcher
 
@@ -16,7 +17,7 @@ class HtmlExtractor:
 
         res = []
         for el in elements:
-            res.append((el.name, el.contents[0]))
+            res.append((el.name, el))
 
         return res
 
