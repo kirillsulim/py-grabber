@@ -1,0 +1,3 @@
+{
+    "matcher": "lambda tag: tag.name == 'p' or tag.name == 'h1' or tag.name == 'h2'"
+}

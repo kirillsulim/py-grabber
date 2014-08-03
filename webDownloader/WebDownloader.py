@@ -2,6 +2,9 @@
 #
 from urllib import request as urlRequest
 
+from chardet.universaldetector import UniversalDetector
+
+
 
 class WebDownloader:
     def __init__(self):
@@ -9,15 +12,18 @@ class WebDownloader:
 
     def download_html(self, url):
         """Get html page as a text"""
-
-        page = urlRequest.urlopen(url).read().decode("utf-8")
+        html = urlRequest.urlopen(url).read()
+        encoding = self.detect_encoding(html)
+        page = html.decode(encoding)
         return page
 
 
-    # Add if have time
-    def detect_and_decode(self, page):
-        temp = str()
-        temp += page.decode("ascii")
-        temp.find()
-        return None
+    @staticmethod
+    def detect_encoding(html):
+        u = UniversalDetector()
+        u.feed(html)
+        u.close()
+        res = u.result['encoding']
+        return res
+
 

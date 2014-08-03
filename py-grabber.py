@@ -2,7 +2,7 @@
 
 from application.Application import Application
 
-url = "http://lenta.ru/articles/2014/08/01/parking/"
+url = "http://www.gazeta.ru/tech/2014/08/01_a_6153949.shtml"
 
 app = Application()
 app.run(url)
