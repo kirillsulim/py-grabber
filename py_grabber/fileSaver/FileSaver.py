@@ -13,7 +13,7 @@ class FileSaver:
         if os.path.exists(name):
             os.remove(name)
 
-        #print(text)
+        name = os.path.join(os.getcwd(), name)
 
         with open(name, 'w', encoding='utf-8') as file:
             file.write("from: " + url
