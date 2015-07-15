@@ -1,11 +1,8 @@
-
-
-
-from webDownloader.WebDownloader import WebDownloader
-from htmlExtractor.HtmlExtractor import HtmlExtractor
-from textFormatter.TextFormatter import TextFormatter
-from fileSaver.FileSaver import FileSaver
-from templateLoader.TemplateLoader import TemplateLoader
+from py_grabber.webDownloader.WebDownloader import WebDownloader
+from py_grabber.htmlExtractor.HtmlExtractor import HtmlExtractor
+from py_grabber.textFormatter.TextFormatter import TextFormatter
+from py_grabber.fileSaver.FileSaver import FileSaver
+from py_grabber.templateLoader.TemplateLoader import TemplateLoader
 
 
 class Application:

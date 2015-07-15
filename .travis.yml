@@ -1,0 +1,14 @@
+language: python
+python:
+- '3.3'
+- '3.4'
+install: python setup.py install
+script: python setup.py test
+deploy:
+  provider: pypi
+  user: kirillsulim
+  password:
+    secure: E6GHlkjt5/S1HhCLwGZmGhMe2cYbb26bIpgXDTSKUU3BzrVgU7DOTfCaJHCNkSYgrl5j8TkCvpF2kKz87ozNhPR2oeiwMYt9rIdMrL9eBEMAzT1I2quxYzwhDrSjeSLpTg1ArrH4mTBY37YjMyp250qAEFYg4Z+GuRKeP4iXKl/hR2u0KVHmHcqByr04NDc+rq6aiAdEsWotgc4je/tHhlDTEV1pbJJSbUWx+zQEo3QSDSSvREYoCWEdK6Swf/+qlsexqZzvkf+Tj6ePlHkBJrzBN3yoFsQ3IT2a8Pou0Vm2cvInqsM1+HLQohIKKGZCND7i6Orsyk6L6U538KbDQsRELjeaCyWw5SIkdJy59stlvkyA+zxF2fBuEAvp9vuaNtm3MstOv2yhCzwJNFq9B7+f3ObPw5LsTEPg2JWAqzRkAOWqv8x2TCWKTu0GFLCtpPW6pqf+gUhdsbkypkgmQiZvLfSc8o0dXRixZizRAgP/olBkym/j6NpJCf5uYwoZ2LpzH83fsuYTVqAPGF7m3emJsFUiVifrES2PCsNk0vdEdg0rfy/Gpl41lUNWVSyxaEh7oPqhhMHnpwMW/YaPSt/iQJykEpaW1K4hYrxcgfKIIJiEG3Rw3IHX8mp2C+zyI2CpBWYiWggDnQD/xPz+xi2cBNomqvlB03St5rkZmqU=
+  on:
+    tags: true
+    repo: kirillsulim/py-grabber
