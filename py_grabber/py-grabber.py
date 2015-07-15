@@ -1,6 +1,6 @@
-
 import sys
-from application.Application import Application
+
+from py_grabber.application import Application
 
 if len(sys.argv) < 1:
     print("Pass url as a command line parameter")
