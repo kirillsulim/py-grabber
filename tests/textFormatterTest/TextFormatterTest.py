@@ -1,6 +1,6 @@
 import unittest
 
-from py_grabber.textFormatter import TextFormatter
+from py_grabber.textFormatter.TextFormatter import TextFormatter
 
 class TemplateLoaderTest(unittest.TestCase):
     def setUp(self):
@@ -39,7 +39,3 @@ class TemplateLoaderTest(unittest.TestCase):
 
         for test in test_data:
             self.assertEqual(test[1], self.formatter.replace_a_to_brackets(test[0]))
-
-
-if __name__ == '__main__':
-    unittest.main()
