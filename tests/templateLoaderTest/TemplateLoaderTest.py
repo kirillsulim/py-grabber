@@ -1,6 +1,6 @@
 import unittest
 
-from py_grabber.templateLoader import TemplateLoader
+from py_grabber.templateLoader.TemplateLoader import TemplateLoader
 
 
 class TemplateLoaderTest(unittest.TestCase):
@@ -16,8 +16,3 @@ class TemplateLoaderTest(unittest.TestCase):
             ('http://abracadabra.ru', 'abracadabra.ru')]
         for test in test_data:
             self.assertEqual(test[1], self.loader.get_name_from_url(test[0]))
-
-    def test_should_load_lambda(self):
-        template = self.loader.load('demo.template')
-        # Here matcher is simple comparator
-        self.assertTrue(template.matcher('test_value'))
