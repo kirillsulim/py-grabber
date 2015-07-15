@@ -1,6 +1,6 @@
 import unittest
 
-from templateLoader.TemplateLoader import TemplateLoader
+from py_grabber.templateLoader import TemplateLoader
 
 
 class TemplateLoaderTest(unittest.TestCase):

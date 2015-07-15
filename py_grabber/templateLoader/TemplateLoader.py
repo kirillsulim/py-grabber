@@ -1,7 +1,7 @@
 import json
 import os.path as path
 
-from templateLoader.ParseTemplate import ParseTemplate
+from py_grabber.templateLoader import ParseTemplate
 
 
 class TemplateLoader:
