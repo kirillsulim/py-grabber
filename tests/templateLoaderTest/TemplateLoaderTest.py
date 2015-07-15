@@ -21,7 +21,3 @@ class TemplateLoaderTest(unittest.TestCase):
         template = self.loader.load('demo.template')
         # Here matcher is simple comparator
         self.assertTrue(template.matcher('test_value'))
-
-
-if __name__ == '__main__':
-    unittest.main()

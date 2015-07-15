@@ -7,9 +7,9 @@ setup(
     author='Kirill Sulim',
     author_email='kirillsulim@gmail.com',
     packages=find_packages(),
-    install_requires=
-    [
+    install_requires=[
         'beautifulsoup4',
-        'chardet'
-    ]
+        'chardet',
+    ],
+    test_suite='tests',
 )
