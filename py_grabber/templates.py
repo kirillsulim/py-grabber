@@ -1,6 +1,9 @@
 import json
 import os
+from urllib.request import urlretrieve
 
+
+GITHUB_TEMPLATES_URL = "https://raw.githubusercontent.com/kirillsulim/py-grabber/master/templates/"
 
 class ParseTemplate:
     def __init__(self):
@@ -15,9 +18,9 @@ class TemplateLoader:
 
     @staticmethod
     def get_name_from_url(url):
-        turl = url[:]  # copy
-        turl = turl.replace('http://', '')  # delete http
-        turl = turl.replace('https://', '')  # delete https
+        turl = url[:]
+        turl = turl.replace('http://', '')
+        turl = turl.replace('https://', '')
 
         slash_index = turl.find('/')
         if slash_index != -1:
@@ -26,9 +29,18 @@ class TemplateLoader:
 
     @staticmethod
     def load_by_name(name):
-        template_path = os.path.expanduser(os.path.join("~", "py-grabber", "templates", name + ".json"))
+        name += ".json"
+        templates_dir = os.path.expanduser(os.path.join("~", "py-grabber", "templates"))
+        os.makedirs(templates_dir, exist_ok=True)
 
+        template_path = os.path.join(templates_dir, name)
         template = ParseTemplate()
+        if not (os.path.exists(template_path) and os.path.isfile(template_path)):
+            try:
+                TemplateLoader.load_from_github(name, template_path)
+            except:
+                pass
+
         if not (os.path.exists(template_path) and os.path.isfile(template_path)):
             return template
         else:
@@ -36,3 +48,8 @@ class TemplateLoader:
             jsn = json.load(file)
             template.matcher = eval(jsn['matcher'])
             return template
+
+    @staticmethod
+    def load_from_github(name, file):
+        url = GITHUB_TEMPLATES_URL + name
+        urlretrieve(url, file)
