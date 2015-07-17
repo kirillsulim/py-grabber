@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='py-grabber',
-    version='0.1.2',
+    version='0.1.3',
     url='https://github.com/kirillsulim/py-grabber',
     description='Extract main content from web-page',
     author='Kirill Sulim',
