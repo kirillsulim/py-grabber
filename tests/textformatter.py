@@ -1,6 +1,7 @@
 import unittest
 
-from py_grabber.textFormatter.TextFormatter import TextFormatter
+from py_grabber.textformatter import TextFormatter
+
 
 class TemplateLoaderTest(unittest.TestCase):
     def setUp(self):
