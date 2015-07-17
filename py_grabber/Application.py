@@ -1,3 +1,7 @@
+from urllib.error import HTTPError
+import errno
+import sys
+
 from py_grabber.webdownloader import WebDownloader
 from py_grabber.htmlextractor import HtmlExtractor
 from py_grabber.textformatter import TextFormatter
@@ -7,20 +11,30 @@ from py_grabber.templates import TemplateLoader
 
 class Application:
     def run(self, url):
-        #download page
-        page = WebDownloader().download_html(url)
+        try:
+            page = WebDownloader().download_html(url)
+            print('Page downloaded')
+        except HTTPError:
+            print('Cannot download page')
+            sys.exit(errno.EHOSTUNREACH)
 
-        #get templates_dir if exists
-        template = TemplateLoader().load(url)
+        try:
+            template = TemplateLoader().load(url)
+            elements = HtmlExtractor(page).extract(template)
+            text = TextFormatter().format_text(elements)
 
-        #extract elements
-        elements = HtmlExtractor(page).extract(template)
+            FileSaver().save(url, text)
+            print('Page saved to file')
+        except Exception as e:
+            print('Some error occures. Try to save error info...')
 
-        #format text
-        text = TextFormatter().format_text(elements)
+            filename = 'error.txt'
+            with open(filename) as efile:
+                print(e, file=efile)
+                print('Error info saved to', filename)
 
-        #save to file
-        FileSaver().save(url, text)
+            sys.exit(errno.EHOSTUNREACH)
+
 
 
 
