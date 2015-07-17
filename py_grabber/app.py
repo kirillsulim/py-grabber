@@ -2,6 +2,7 @@ import sys
 
 from py_grabber.application import Application
 
+
 def run():
     if len(sys.argv) == 1:
         print("print pygrab [your url] to download page")
