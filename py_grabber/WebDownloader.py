@@ -1,5 +1,3 @@
-#
-#
 from urllib import request as urlRequest
 
 from chardet.universaldetector import UniversalDetector

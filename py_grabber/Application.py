@@ -1,8 +1,8 @@
-from py_grabber.webDownloader.WebDownloader import WebDownloader
-from py_grabber.htmlExtractor.HtmlExtractor import HtmlExtractor
-from py_grabber.textFormatter.TextFormatter import TextFormatter
-from py_grabber.fileSaver.FileSaver import FileSaver
-from py_grabber.templateLoader.TemplateLoader import TemplateLoader
+from py_grabber.webdownloader import WebDownloader
+from py_grabber.htmlextractor import HtmlExtractor
+from py_grabber.textformatter import TextFormatter
+from py_grabber.filesaver import FileSaver
+from py_grabber.templates import TemplateLoader
 
 
 class Application:
@@ -10,7 +10,7 @@ class Application:
         #download page
         page = WebDownloader().download_html(url)
 
-        #get templates if exists
+        #get templates_dir if exists
         template = TemplateLoader().load(url)
 
         #extract elements

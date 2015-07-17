@@ -1,7 +1,10 @@
 import json
-import os.path as path
+import os
 
-from py_grabber.templateLoader.ParseTemplate import ParseTemplate
+
+class ParseTemplate:
+    def __init__(self):
+        self.matcher = None
 
 
 class TemplateLoader:
@@ -23,10 +26,10 @@ class TemplateLoader:
 
     @staticmethod
     def load_by_name(name):
-        template_path = "templates/" + name + ".json"
+        template_path = os.path.expanduser(os.path.join("~", "py-grabber", "templates", name + ".json"))
 
         template = ParseTemplate()
-        if not (path.exists(template_path) and path.isfile(template_path)):
+        if not (os.path.exists(template_path) and os.path.isfile(template_path)):
             return template
         else:
             file = open(template_path, 'r')

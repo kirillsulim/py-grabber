@@ -11,7 +11,7 @@ class HtmlExtractor:
         if matcher is None:
             matcher = self.default_matcher
 
-        soup = BeautifulSoup(markup=self.page)
+        soup = BeautifulSoup(self.page, "html.parser")
 
         elements = soup.find_all(matcher)
 

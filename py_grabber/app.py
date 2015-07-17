@@ -1,6 +1,6 @@
 import sys
 
-from py_grabber.application.Application import Application
+from py_grabber.application import Application
 
 def run():
     if len(sys.argv) < 1:
